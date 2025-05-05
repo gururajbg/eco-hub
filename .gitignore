@@ -1,0 +1,7 @@
+node_modules
+venv
+modeltest
+
+__pycache__
+public.zip
+

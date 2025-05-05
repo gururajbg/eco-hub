@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Waste Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .video-container {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+        #video-feed {
+            max-width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>E-Waste Detection System</h1>
+        <div class="video-container">
+            <img id="video-feed" src="{{ url_for('video_feed') }}" alt="Video Feed">
+        </div>
+        <div class="controls">
+            <button onclick="startDetection()">Start Detection</button>
+            <button onclick="stopDetection()">Stop Detection</button>
+        </div>
+    </div>
+
+    <script>
+        function startDetection() {
+            document.getElementById('video-feed').src = "{{ url_for('video_feed') }}";
+        }
+
+        function stopDetection() {
+            document.getElementById('video-feed').src = "";
+        }
+    </script>
+</body>
+</html> 
