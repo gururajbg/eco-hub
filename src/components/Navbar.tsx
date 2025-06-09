@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Recycle, Battery, User, LogOut } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { Recycle, Battery, User, LogOut, Moon, Sun } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const { user, isAdmin, logout } = useAuth();
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
 
   const handleLogout = async () => {
     try {
@@ -76,6 +78,18 @@ const Navbar: React.FC = () => {
               <Battery className="h-4 w-4 mr-2" />
               Copper Extraction
             </Link>
+
+            <button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-eco-green-medium hover:text-white"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-4 w-4 mr-2" />
+              ) : (
+                <Moon className="h-4 w-4 mr-2" />
+              )}
+              {theme === 'dark' ? 'Light' : 'Dark'}
+            </button>
 
             {user ? (
               <button

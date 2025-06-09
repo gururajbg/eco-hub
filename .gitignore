@@ -5,3 +5,7 @@ modeltest
 __pycache__
 public.zip
 
+uploads
+yolov12
+yolov12-env
+python-3.10.0-amd64.exe
